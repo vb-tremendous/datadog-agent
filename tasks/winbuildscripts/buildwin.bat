@@ -23,6 +23,7 @@ REM copy resulting packages to expected location for collection by gitlab.
 if not exist %PKG_OUTDIR% mkdir %PKG_OUTDIR% || exit /b 5
 if exist \omnibus-ruby\pkg\*.msi copy \omnibus-ruby\pkg\*.msi %PKG_OUTDIR% || exit /b 6
 if exist \omnibus-ruby\pkg\*.zip copy \omnibus-ruby\pkg\*.zip %PKG_OUTDIR% || exit /b 7
+if exist ..\opt\datadog-agent\bin\agent\*.pdb copy ..\opt\datadog-agent\bin\agent\*.pdb %PKG_OUTDIR% || exit /b 9
 
 goto :EOF
 
