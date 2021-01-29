@@ -208,9 +208,8 @@ func TestProcessContext(t *testing.T) {
 				t.Error("Wrong rule triggered")
 			}
 
-			values, _ := event.GetFieldValue("process.ancestors.name")
-			if names := values.([]string); names[0] != "sh" {
-				t.Errorf("ancestor `sh` expected, got %s, event:%v", names[0], event)
+			if ancestor := event.Process.Ancestor; ancestor == nil || ancestor.Comm != "sh" {
+				t.Errorf("ancestor `sh` expected, got %v, event:%v", ancestor, event)
 			}
 		}
 	})
